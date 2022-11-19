@@ -1,0 +1,53 @@
+import { lazy } from "react";
+
+const TestFileUpload = lazy(() => import("../components/error/TestFileUpload"));
+
+const DropZone = lazy(() => import("../components/authentication/DropZone"));
+
+const IconFileUpload = lazy(() => import("../components/authentication/IconFileUpload"));
+
+
+
+const routes = [
+  {
+    path: "/iconfileupload",
+    name: "IconFileUpload",
+    exact: true,
+    element: IconFileUpload,
+    roles: [],
+    isAnonymous: true,
+  },
+  {
+    path: "/dropzone",
+    name: "DropZone",
+    exact: true,
+    element: DropZone,
+    roles: [],
+    isAnonymous: true,
+  },
+  {
+    path: "/signin",
+    name: "TestFileUpload",
+    exact: true,
+    element: TestFileUpload,
+    roles: [],
+    isAnonymous: true,
+  },
+  
+
+const errorRoutes = [
+  {
+    path: "*",
+    name: "Error - 404",
+    element: PageNotFound,
+    roles: [],
+    exact: true,
+    isAnonymous: true,
+  },
+];
+
+
+
+var allRoutes = [...routes, ...errorRoutes, ...locationFormsRoute];
+
+export default allRoutes;
